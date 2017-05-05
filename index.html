@@ -7,8 +7,12 @@
   <title>BA Bike share</title>
   <meta name="description" content="BA Bike share">
   <meta name="author" content="SitePoint">
-
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+   integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+   crossorigin=""/>
+  <link rel="stylesheet" href="https://mapzen.com/js/mapzen.css">
   <link rel="stylesheet" href="css/styles.css?v=1.0">
+
 
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -16,6 +20,24 @@
 </head>
 
 <body>
-  <script src="js/scripts.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+	<script src="https://mapzen.com/js/mapzen.js"></script>
+	<script src="js/scripts.js"></script>
+
+  	<p> Buenos Aires City is the capital and largest city of Argentina. It has almost 3 million inhabitants. The Greater Buenos Aires conurbation, which also includes several Buenos Aires Province districts, constitutes the fourth-most populous metropolitan area in the Americas, with a population of around 17 million.</p>
+	<p>Besides buses, in Buenos Aires City there is two main transportation services: the Subway and the newly implemented Bus Rapid Transit system. The subway is the most popular (near 30 million users monthly) and fastest (26 minutes average time from the peripheral terminals to Downtown). Nevertheless, while subway is the fastest mode of transit to commute to downtown BA, the network is not so well spread. This leaves zome areas of the city poorly connected to downtown. As many cities, Buenos Aires has a bike-share system called Ecobici with 179 thousands registered users. It is totally free of charge and has more than 83 stations. At the same time, the city has one of the most extended network of protected and exclusive bike-lanes (158 km) that makes Buenos Aires the 14th most bikeable city in the world according to copenhagenize.org.</p>
+	<p>We propose to deploy bike-share stations in the peripherals areas as a way to improve access to the network in a smart, flexible, low cost and environmentally friendly way. </p>
+
+	<h1> New bike stations </h1>
+	<p>Choose how many locations you want assign from 0 to 20 and the map will locate them </p>
+
+<!-- map -->
+
+    <div id='map'>
+    	<script src="js/map.js"></script>
+	</div>
+
+<!-- how we build it -->
 </body>
 </html>
