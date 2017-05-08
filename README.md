@@ -17,7 +17,7 @@ Nevertheless, bike-share stations are located in the downtown area, in competiti
 	* Time in minutes it takes from each census block centroid to dowtown (in standar deviations)
 	* Cost in argentine pesos it takes from each census block centroid to dowtown(in standar deviations)
 
-* We evaluated the new time it takes combining bike and subway using [Google API Distance Matrix] (https://developers.google.com/maps/documentation/distance-matrix/). The code is in [this project here](https://github.com/alephcero/baCommuteMatrixMap). Google didn't implemented *bike* as a mode of transit, so we estimated a average velocity of 10 km/h using a study carried in Lyon, France.
+* We evaluated the new time it takes combining bike and subway using [Google API Distance Matrix](https://developers.google.com/maps/documentation/distance-matrix/). The code is in [this project here](https://github.com/alephcero/baCommuteMatrixMap). Google didn't implemented *bike* as a mode of transit, so we estimated a average velocity of 10 km/h using a study carried in Lyon, France.
 
 ## Main results
 
