@@ -21,6 +21,7 @@ Nevertheless, bike-share stations are located in the downtown area, in competiti
 
 ## Main results
 
+Combining bikeshare and subway in the commute reduces trip time by:
 
 | Statistic	| Reduction in minutes 	| Reduction in % |
 | ------------- | ------------- 	| -------------- |
