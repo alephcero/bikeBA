@@ -16,6 +16,7 @@ function onEachFeature(feature, layer) {
 
 //improvementRadios
 L.geoJSON(improvementRadios, {
+	onEachFeature: onEachFeature,
     style: function(feature) {
         return {
         fillColor: getColor(feature.properties.AhorroMinutos),
