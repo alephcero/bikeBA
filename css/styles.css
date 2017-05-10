@@ -1,5 +1,22 @@
+
+.contenedor100{
+	width: 100%;
+	height: 300px;
+}
+
+.contenedor25{
+	width: 25%;
+	height: 250px;
+	float: left;
+}
+
+.contenedorMap{
+	width: 50%;
+	height: 250px;
+	float: left;
+}
+
 #map {
-	margin-left: 33%;
-	width: 800px;
+	width: 100%;
 	height: 600px;
 }
