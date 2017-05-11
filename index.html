@@ -31,9 +31,16 @@
 	<script src="data/newStations.js"></script>
 	<script src="data/subwayLines.js"></script>
 	<script src="data/subwayStations.js"></script>
+	<script src="data/censusBlocksTime.js"></script>
+	<script src="data/tranfersNeed.js"></script>
 	<!-- END LOAD DATA -->
 
 	<script src="js/scripts.js"></script>
+		<div class='contenedor100'>
+		<div class='contenedor25'>
+		</div>
+		<div class='contenedorMap'>
+
 	<h1> Using bike share and subway to commute </h1>
 
   	<p> Buenos Aires City is the capital and largest city of Argentina (almost 3 million inhabitants). The Greater Buenos Aires conurbation constitutes the fourth-most populous metropolitan area in the Americas, with a population of around 17 million. The subway is the most popular (near 30 million users monthly) and fastest (26 minutes average time from the peripheral terminals to Downtown) mode of transit. But, the subway network is not so well spread. This leaves zome areas of the city poorly connected to downtown. As many cities, Buenos Aires has a bike-share system called Ecobici with 179 thousands registered users. It is totally free of charge and has more than 83 stations. At the same time, the city has one of the most extended network of protected and exclusive bike-lanes (158 km) that makes Buenos Aires the 14th most bikeable city in the world according to copenhagenize.org. Nevertheless, bike-share stations are located in the downtown area, in competition rather than cooperation with the subway. We propose to deploy bike-share stations in the peripherals areas as a way to improve access to the subway network in a smart, flexible, low-cost and environmentally friendly way. The main idea is for people living close (but not close enough to walk) to a subway station, can bike to the subway and from there to work.</p>
@@ -44,32 +51,85 @@
 	haciendo clic
 	transparencias para los poligonos
  -->  	<p>The map shows </p>
-	<div class='contenedor100'>
-		<div class='contenedor25'>
-		</div>
-		<div class='contenedorMap'>
 			<div id='mapExample'>
     			<script src="js/mapExample.js"></script>
 			</div>
-		</div>
-	</div>
+
 	<h1>Proposed new bike-share stations </h1>
 	<p>The map shows </p>
 
 <!-- map -->
-	<div class='contenedor100'>
-		<div class='contenedor25'>
-		</div>
-		<div class='contenedorMap'>
+
 			<div id='map'>
     			<script src="js/map.js"></script>
 			</div>
-		</div>
-	</div>
 
+	<h1>Commute time to downtown </h1>
+	<p>The map shows the commute time in minutes to downtown. Black areas are those poorly connected to downtown, so a transfer is needed (bus-subway or two buses).</p>
 <!-- mapa conjunto de tiempo y zonas mal conectadas -->
+			<div id='mapTime'>
+				<script src="js/mapTime.js"></script>
+			</div>
 
 <!-- how we build it -->
+	<h1>Techniques used to this solution</h1>
+
+    <p>We used service area in Network Analysis to come up with buffer areas for:</p>
+    <ul>
+  		<li>350 meters as walking distance to the subway</li>
+  		<li>2500 meters as bikeable distance to the subway (those who walk won't bike)</li>
+	</ul> 
+    
+     <img src="img/buffers.gif" alt="Service Area Buffers" style="width:100%;">
+
+    <p>Within the bikeable area to the subway we used Location Allocation maximizing attendance to come up with ideal locations for the new bike share stations </p>
+	
+	<img src="img/locationAlocation.jpg" alt="Location Allocation" style="width:100%;">
+    
+    <p>For weights in the Location Allocation we use, for each census block, the sum of:</p>
+    <ul>
+        <li>Total population within 18 and 50 years (in standar deviations)</li>
+        <li>Time in minutes it takes from each census block centroid to dowtown (in standar deviations)</li>
+        <li>Cost in argentine pesos it takes from each census block centroid to dowtown(in standar deviations)</li>
+	</ul>
+    
+    <p>We evaluated the new time it takes combining bike and subway using Google API Distance Matrix. The code is in
+<a href="https://github.com/alephcero/baCommuteMatrixMap" target="_blank">this project here</a>
+ . Google didn't implemented bike as a mode of transit, so we estimated a average velocity of 10 km/h using a study carried in Lyon, France.</p>	
+
+<h1>Main results</h1>
+
+<p>Combining bikeshare and subway in the commute reduces trip time by:</p>
+
+		 <table style="width:100%">
+  <tr>
+    <th>Statistic</th>
+    <th>Reduction in minutes </th>
+    <th>Reduction in %</th>
+  </tr>
+  <tr>
+    <td>Mean</td>
+    <td>6:48 </td>
+    <td>15,0 %</td>
+  </tr>
+  <tr>
+    <td>1Q</td>
+    <td>9:11 </td>
+    <td>22,8 %</td>
+  </tr>
+  <tr>
+    <td>Median</td>
+    <td>5:16 </td>
+    <td>12,7 %</td>
+  </tr>
+  <tr>
+    <td>3Q</td>
+    <td>2:43 </td>
+    <td>6,4 %</td>
+  </tr>
+</table> 	
+		</div>
+	</div>
 
 
 </body>

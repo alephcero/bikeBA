@@ -12,7 +12,7 @@ Nevertheless, bike-share stations are located in the downtown area, in competiti
 
 * Within the *bikeable area* to the subway we used **Location Allocation** maximizing attendance to come up with ideal locations for the new bike share stations
 
-* For wheights in the **Location Allocation** we use, for each census block, the sum of:
+* For weights in the **Location Allocation** we use, for each census block, the sum of:
 	* Total population within 18 and 50 years (in standar deviations)
 	* Time in minutes it takes from each census block centroid to dowtown (in standar deviations)
 	* Cost in argentine pesos it takes from each census block centroid to dowtown(in standar deviations)
