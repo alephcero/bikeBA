@@ -43,7 +43,9 @@
 
 	<h1> Using bike share and subway to commute </h1>
 
-  	<p> Buenos Aires City is the capital and largest city of Argentina (almost 3 million inhabitants). The Greater Buenos Aires conurbation constitutes the fourth-most populous metropolitan area in the Americas, with a population of around 17 million. The subway is the most popular (near 30 million users monthly) and fastest (26 minutes average time from the peripheral terminals to Downtown) mode of transit. But, the subway network is not so well spread. This leaves zome areas of the city poorly connected to downtown. As many cities, Buenos Aires has a bike-share system called Ecobici with 179 thousands registered users. It is totally free of charge and has more than 83 stations. At the same time, the city has one of the most extended network of protected and exclusive bike-lanes (158 km) that makes Buenos Aires the 14th most bikeable city in the world according to copenhagenize.org. Nevertheless, bike-share stations are located in the downtown area, in competition rather than cooperation with the subway. We propose to deploy bike-share stations in the peripherals areas as a way to improve access to the subway network in a smart, flexible, low-cost and environmentally friendly way. The main idea is for people living close (but not close enough to walk) to a subway station, can bike to the subway and from there to work.</p>
+  	<p> Buenos Aires City is the capital and largest city of Argentina (almost 3 million inhabitants). The Greater Buenos Aires conurbation constitutes the fourth-most populous metropolitan area in the Americas, with a population of around 17 million. The subway is the most popular (near 30 million users monthly) and fastest (26 minutes average time from the peripheral terminals to Downtown) mode of transit. Nevertheless, the subway network is not so well spread. This leaves zome areas of the city poorly connected to downtown. As many cities, Buenos Aires has a bike-share system called Ecobici with 179 thousands registered users. It is totally free of charge and has more than 83 stations. At the same time, the city has one of the most extended network of protected and exclusive bike-lanes (158 km) that makes Buenos Aires the 14th most bikeable city in the world according to copenhagenize.org. Evenso, bike-share stations are located in the downtown area, in competition rather than cooperation with the subway. We propose to deploy bike-share stations in the peripherals areas as a way to improve access to the subway network in a smart, flexible, low-cost and environmentally friendly way. The main idea is for people living close (but not close enough to walk) to a subway station, can bike to the subway and from there to work.We assumed that all of the subway stations would have a bike-share station on the entrance. </p>
+
+    <p>Some areas in Buenos Aires are relatively close to subway lines, but not close enough for people to walk there. We though that bike-share could be used to fill this gap, as a multimodal transport option for the daily commute. So, we wanted to come up with the best locations for new bike-share stations in areas that are close enough to subway stations that people could bike to them, but not close enough that people would walk. </p>
 
   	<h1>How to read the map?</h1>
   	<p>The map shows the subway lines and stations (in orange) together with the current bike-share stations (in blue). We can see that both are concentrated around the downtown area.  The new bike-share stations that we propose (in cyan) are located in the peripheral areas. <b>You can click on any of the stations to see wich stations it is</b>.</p>
@@ -72,6 +74,11 @@
 
 <!-- how we build it -->
 	<h1>Techniques used to this solution</h1>
+    <p> We knew that some areas in Buenos Aires (like Villa Crespo) were relatively close to subway lines, but not close enough for people to walk there. We though that bike-share could be used to fill this gap, as a multimodal transport option for the daily commute. So, we wanted to come up with the best locations for new bike-share stations in <i>areas that are close enough to subway stations that people could bike to them, but not close enough that people would walk.</i></p>
+
+    <p>First, we had to know the areas of the city already served by a subway station. The area that people would walk to subway, so we can exclude those <b>walkable areas</b> from ou analysis as possible areas where the new bike-share station could be located. But, we didn't want to set the stations too far away that people wouldn't even think about biking to the subway stations. So we had to come up with some <b>bikeable area</b> where it would actually make sense to put a new bike-share station.</p>
+
+    <p>We could do this using simple buffer areas around subway stations with <i>some radius for walkable area and another for bikeable area</i>. Instead, we choose to use network analysis. This means that we compute the actual distance that people would walk or bike along the streets or sidewalks. This is better than using some fictional straight distance that would imply that people would fly to the subway station. For example, in Villa Crespo, there is a huge park called Parque Centenario. People not necessarily can walk straight through the park. The same can be said for the areas of Colegiales and Palermo neighborhoods where there are railroad tracks impeding the passage.  </p>
 
     <p>We used service area in Network Analysis to come up with buffer areas for:</p>
     <ul>
@@ -79,9 +86,10 @@
   		<li>2500 meters as bikeable distance to the subway (those who walk won't bike)</li>
 	</ul> 
     
+    <p>This is was the process. In cyan the bikeable area. In yellow the walkable area. At the end, we can see the final <b>bikeable but not walkable area</b> that is our area of interest. </p>
      <img src="img/buffers.gif" alt="Service Area Buffers" style="width:100%;">
 
-    <p>Within the bikeable area to the subway we used Location Allocation maximizing attendance to come up with ideal locations for the new bike share stations </p>
+    <p>Within the <b>bikeable but not walkable</b> area to the subway we used Location Allocation maximizing attendance to come up with ideal locations for the new bike share stations </p>
 	
 	<img src="img/locationAlocation.jpg" alt="Location Allocation" style="width:100%;">
     
@@ -127,10 +135,10 @@
     <td>6,4 %</td>
   </tr>
 </table> 	
-
+  
 
   <h1>Commute time to downtown </h1>
-  <p>The map shows the commute time in minutes to downtown. Black areas are those poorly connected to downtown, so a transfer is needed (bus-subway or two buses).</p>
+  <p>This is the resulting map the the <a href="https://github.com/alephcero/baCommuteMatrixMap" target="_blank">BA Commute time project</a>. The map shows the commute time in minutes to downtown. Black areas are those poorly connected to downtown, so a transfer is needed (bus-subway or two buses).</p>
 <!-- mapa conjunto de tiempo y zonas mal conectadas -->
       <div id='mapTime'>
         <script src="js/mapTime.js"></script>
