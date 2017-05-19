@@ -33,10 +33,12 @@ legend.onAdd = function (map) {
      'Subway stations' ;
 
     div.innerHTML += '<br>' +
-     '<i style="background: #135AFF; border-radius: 15px;opacity:1' + '"></i> ' +
+     '<i style="background: #135AFF; border-radius: 15px;opacity:1; ' + '"></i> ' +
      'Current bike-share stations' ;
 
-
+    div.innerHTML += '<br>' +
+     '<i style="background: cyan; border-radius: 15px;opacity:1' + '"></i> ' +
+     'New bike-share stations' ;
 
     div.innerHTML += '<br>  <br>' +
      '<i style="border: 1px dotted darkcyan; border-style: none none dotted; color: rgba(255,255,255,0.8); ' + '"></i> ' +

@@ -46,17 +46,21 @@
   	<p> Buenos Aires City is the capital and largest city of Argentina (almost 3 million inhabitants). The Greater Buenos Aires conurbation constitutes the fourth-most populous metropolitan area in the Americas, with a population of around 17 million. The subway is the most popular (near 30 million users monthly) and fastest (26 minutes average time from the peripheral terminals to Downtown) mode of transit. But, the subway network is not so well spread. This leaves zome areas of the city poorly connected to downtown. As many cities, Buenos Aires has a bike-share system called Ecobici with 179 thousands registered users. It is totally free of charge and has more than 83 stations. At the same time, the city has one of the most extended network of protected and exclusive bike-lanes (158 km) that makes Buenos Aires the 14th most bikeable city in the world according to copenhagenize.org. Nevertheless, bike-share stations are located in the downtown area, in competition rather than cooperation with the subway. We propose to deploy bike-share stations in the peripherals areas as a way to improve access to the subway network in a smart, flexible, low-cost and environmentally friendly way. The main idea is for people living close (but not close enough to walk) to a subway station, can bike to the subway and from there to work.</p>
 
   	<h1>How to read the map?</h1>
-<!--   	mostarr el ejemplo de villa crespo sobre san maritn
-	explicar cada color
-	haciendo clic
-	transparencias para los poligonos
- -->  	<p>The map shows </p>
+  	<p>The map shows the subway lines and stations (in orange) together with the current bike-share stations (in blue). We can see that both are concentrated around the downtown area.  The new bike-share stations that we propose (in cyan) are located in the peripheral areas. <b>You can click on any of the stations to see wich stations it is</b>.</p>
+
+    <p>Each new bike-share station has a service area (in spring green). We used census blocks (the smallest spatial unit that the census gives information for). You can see the improvement in commute trip time in minutes based on the opacity of the color. You can also see mostre clearly those services areas where the improvement is higher. <b>You can click on any block to check the total commute time improvement.</b> </p>
+
+    <p>Finally, we estimated the time it takes to walk from home to the new bike-share station (actually from the census block centroid).  And also, how much time it takes to bike from the new bike-share station to the nearest subway station. <b>You can click on any of the paths to check the estimated time.</b> </p>
+
+    <p>The example map shows an area in Villa Crespo, a neighborhood in Buenos Aires City relatively close to two subway Lines (A and B). You can see two new bike-share stations with the corresponding service area. For one of this areas, the improvement would be homogeneously high, while the other shows different levels of improvement. From each of the census blocks, we show in a light cyan dashed line, the path to the bike-share station. Then we show in a dark cyan dashed line the biking path to the nearest subway station. <b>Click on any of those features to see each of the times and improvements.</b></p>
+
+
 			<div id='mapExample'>
     			<script src="js/mapExample.js"></script>
 			</div>
 
 	<h1>Proposed new bike-share stations </h1>
-	<p>The map shows </p>
+	<p>This is the full map for 20 new bike-share stations.<b> You can zoom-in on any area of your interest.</b> </p>
 
 <!-- map -->
 
@@ -64,12 +68,7 @@
     			<script src="js/map.js"></script>
 			</div>
 
-	<h1>Commute time to downtown </h1>
-	<p>The map shows the commute time in minutes to downtown. Black areas are those poorly connected to downtown, so a transfer is needed (bus-subway or two buses).</p>
-<!-- mapa conjunto de tiempo y zonas mal conectadas -->
-			<div id='mapTime'>
-				<script src="js/mapTime.js"></script>
-			</div>
+
 
 <!-- how we build it -->
 	<h1>Techniques used to this solution</h1>
@@ -128,9 +127,16 @@
     <td>6,4 %</td>
   </tr>
 </table> 	
+
+
+  <h1>Commute time to downtown </h1>
+  <p>The map shows the commute time in minutes to downtown. Black areas are those poorly connected to downtown, so a transfer is needed (bus-subway or two buses).</p>
+<!-- mapa conjunto de tiempo y zonas mal conectadas -->
+      <div id='mapTime'>
+        <script src="js/mapTime.js"></script>
+      </div>
+
 		</div>
 	</div>
-<p> </p>
-<p> </p>
 </body>
 </html>
